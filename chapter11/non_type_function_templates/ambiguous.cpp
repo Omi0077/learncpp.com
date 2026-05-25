@@ -33,5 +33,7 @@ int main(){
   // now calling will not lead to ambiguous matches
   printPositive<5>();
   printPositive<'A'>();
+  // bcs this instantiates two different functions , template matching doesnt case problem 
+  // as there is only one template
   return 0;
 }
