@@ -22,7 +22,7 @@ int main(void){
   // status = 1;
   // status{1} // not initialization
 
-  // TransactionStatus status1 {1032}; // out of range
+  // TransactionStatus status1 {257}; // out of range
   TransactionStatus status1 {10};
   std::cout << status1 << "\n";
   std::cout << sizeof(status1) << "\n";
