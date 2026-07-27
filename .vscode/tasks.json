@@ -2,21 +2,21 @@
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "C/C++: g++ build active file",
-      "command": "/usr/bin/g++",
+      "label": "C/C++: clang build active file",
+      "command": "/usr/bin/clang++",
       "args": [
         "-fdiagnostics-color=always",
         "-g",
+        "-stdlib=libc++",
         "${file}",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
+        "${fileDirname}/${fileBasenameNoExtension}",
+        "-std=c++23"
       ],
       "options": {
         "cwd": "${fileDirname}"
       },
-      "problemMatcher": [
-        "$gcc"
-      ],
+      "problemMatcher": ["$gcc"],
       "group": {
         "kind": "build",
         "isDefault": true
