@@ -9,7 +9,7 @@ int main()
   while (true)
   {
     p = new (std::nothrow) std::array<int, 1000000>;
-    delete p;
+    // delete p;
 
     if (!p)
     {
