@@ -21,7 +21,7 @@ public:
   T &operator[](int i) { return m_arr.get()[static_cast<std::size_t>(i)]; }
   const T &operator[](int i) const { return m_arr.get()[static_cast<std::size_t>(i)]; };
 
-  //[row,col] only in c++23 >
+  //[row,col] only in std > c++23 
   T &operator[](int row, int col)
   {
     return m_arr.get()[static_cast<std::size_t>(row * cols() + col)];
