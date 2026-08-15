@@ -51,6 +51,11 @@ public:
   ~Resource() { std::cout << "resource destroyed\n"; }
 };
 
+void someFunction(AutoPtr<Resource> res)
+{
+  std::cout << "orignal Autoptr is nullptr now baby, try derefrencing it\n";
+}
+
 int main(int argc, char *argv[])
 {
   // without using our AutoPtr
@@ -83,7 +88,7 @@ int main(int argc, char *argv[])
   // 3. we should apply move semantics instead of copy,
   //    i.e instead of copying the pointer we move the ownership of pointer from source to destination
 
-  AutoPtr<Resource> res2 {nullptr};
+  AutoPtr<Resource> res2{nullptr};
   std::cout << "res 1 is " << ((res.isNull()) ? "null\n" : "not null\n");
   std::cout << "res 2 is " << ((res2.isNull()) ? "null\n" : "not null\n");
 
@@ -91,5 +96,12 @@ int main(int argc, char *argv[])
 
   std::cout << "res 1 is " << ((res.isNull()) ? "null\n" : "not null\n");
   std::cout << "res 2 is " << ((res2.isNull()) ? "null\n" : "not null\n");
+
+  someFunction(res2);
+
+  if (res2.isNull())
+  {
+    std::cout << "lol\n"; // this is and was one of the major flaws in std::auto_ptr and out AutoPtr too.
+  }
   return 0;
 }
